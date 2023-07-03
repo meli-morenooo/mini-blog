@@ -54,6 +54,12 @@ django-admin startproject miniblog .
 python manage.py migrate
 ```
 
+3. Crea un superusuario para acceder al panel de administración de Django. Ejecuta el siguiente comando y sigue las instrucciones:
+
+```shell
+python manage.py createsuperuser --username=admin --email=admin@example.com
+```
+
 ### Ejecución del servidor de desarrollo
 
 1. Verifica que la configuración se haya realizado correctamente ejecutando el servidor de desarrollo de Django:
