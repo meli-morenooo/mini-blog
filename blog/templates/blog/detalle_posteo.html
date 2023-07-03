@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>{{ post.titulo }}</h2>
+    <p>{{ post.contenido }}</p>
+
+    <h3>Comentarios</h3>
+    {% for comentario in comentarios %}
+        <p>{{ comentario.texto }}</p>
+        <p>Escrito por: {{ comentario.autor.username }}</p>
+    {% empty %}
+        <p>No hay comentarios aún.</p>
+    {% endfor %}
+{% endblock %}

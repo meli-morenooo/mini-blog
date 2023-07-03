@@ -1,10 +1,10 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>Nuevo posteo</h2>
+    <h2>Nuevo comentario</h2>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Crear posteo</button>
+        <button type="submit">Crear comentario</button>
     </form>
 {% endblock %}

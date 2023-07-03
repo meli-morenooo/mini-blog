@@ -16,7 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.lista_posteos, name='lista_posteos'),
+    path('post/nuevo/', views.nuevo_posteo, name='nuevo_posteo'),
+    path('post/<int:pk>/editar/', views.editar_posteo, name='editar_posteo'),
+    path('post/<int:pk>/', views.detalle_posteo, name='detalle_posteo'),
+    path('post/<int:pk>/eliminar/', views.eliminar_posteo, name='eliminar_posteo'),
+    path('post/<int:pk>/comentario/nuevo/', views.nuevo_comentario, name='nuevo_comentario'),
+    path('comentario/<int:pk>/editar/', views.editar_comentario, name='editar_comentario'),
+    path('comentario/<int:pk>/eliminar/', views.eliminar_comentario, name='eliminar_comentario'),
+
 ]
