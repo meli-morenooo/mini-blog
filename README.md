@@ -1,81 +1,82 @@
-## Paso a paso para la creación del proyecto "miniblog"
+# Mini Blog en Django
 
-Este repositorio de GitHub contiene los pasos necesarios para crear el proyecto "miniblog" utilizando Django. A continuación, se detalla el proceso paso a paso para configurar y ejecutar el proyecto.
+Este es un proyecto de un blog básico hecho en Django.
 
-### Requisitos previos
-Asegúrate de tener instalado Python y pip en tu sistema antes de continuar. También necesitarás tener `virtualenv` instalado. Si no lo tienes, puedes instalarlo utilizando el siguiente comando:
+## Prerrequisitos
 
-```shell
-pip install virtualenv
-```
+Antes de poder ejecutar este proyecto, necesitas tener instalado lo siguiente:
 
-### Configuración del entorno virtual
+- Python 3.6 o superior
+- Pip (gestor de paquetes de Python)
+- Virtualenv (herramienta para crear entornos virtuales de Python)
 
-1. Clona este repositorio en tu máquina local:
+## Instrucciones de instalación y ejecución
 
-```shell
-git clone https://github.com/TU_USUARIO/miniblog.git
-```
+1. **Descarga el proyecto**
 
-2. Navega hasta la carpeta del proyecto:
+   Puedes clonar este proyecto usando git. Para eso, ejecuta el siguiente comando en tu terminal:
 
-```shell
-cd miniblog
-```
+   ```
+   git clone URL_DEL_REPOSITORIO
+   ```
 
-3. Crea un entorno virtual e inícialo:
+   **Nota:** Debes reemplazar `URL_DEL_REPOSITORIO` con la URL de este repositorio en GitHub.
 
-```shell
-virtualenv venv
-source venv/bin/activate
-```
+2. **Crea un entorno virtual y actívalo**
 
-### Instalación de dependencias
+   Navega hasta el directorio del proyecto (donde se encuentra el archivo `manage.py`) y ejecuta los siguientes comandos para crear y activar el entorno virtual:
 
-1. Asegúrate de que estás dentro del entorno virtual (el prefijo `(venv)` debe aparecer en tu línea de comandos).
+   - En Windows:
+     ```
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+   - En Linux/Mac:
+     ```
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
 
-2. Instala las dependencias del proyecto utilizando el archivo `requirements.txt`:
+3. **Instala las dependencias**
 
-```shell
-pip install -r requirements.txt
-```
+   Una vez activado el entorno virtual, instala las dependencias del proyecto con el siguiente comando:
 
-### Configuración de Django
+   ```
+   pip install -r requirements.txt
+   ```
 
-1. Genera la configuración inicial de Django ejecutando el siguiente comando:
+4. **Realiza las migraciones de la base de datos**
 
-```shell
-django-admin startproject miniblog .
-```
+   Django usa un sistema de migraciones para manejar la base de datos. Ejecuta el siguiente comando para aplicar las migraciones:
 
-2. Realiza las migraciones necesarias para configurar la base de datos:
+   ```
+   python manage.py migrate
+   ```
 
-```shell
-python manage.py migrate
-```
+5. **Crea un superusuario (opcional)**
 
-3. Crea un superusuario para acceder al panel de administración de Django. Ejecuta el siguiente comando y sigue las instrucciones:
+   Si quieres acceder a la interfaz de administración de Django, necesitarás un superusuario. Para crearlo, ejecuta el siguiente comando y sigue las instrucciones:
 
-```shell
-python manage.py createsuperuser --username=admin --email=admin@example.com
-```
+   ```
+   python manage.py createsuperuser
+   ```
 
-### Ejecución del servidor de desarrollo
+6. **Ejecuta el servidor de desarrollo**
 
-1. Verifica que la configuración se haya realizado correctamente ejecutando el servidor de desarrollo de Django:
+   Finalmente, puedes ejecutar el servidor de desarrollo de Django con el siguiente comando:
 
-```shell
-python manage.py runserver
-```
+   ```
+   python manage.py runserver
+   ```
 
-2. Abre tu navegador web e ingresa la URL `http://localhost:8000/` para acceder al proyecto "miniblog".
+   Ahora deberías poder ver el proyecto en tu navegador accediendo a `http://localhost:8000`.
 
-### Creación de la aplicación "blog"
+## Características del proyecto
 
-1. Crea una nueva aplicación llamada "blog" utilizando el siguiente comando:
+Este proyecto de blog en Django incluye las siguientes características:
 
-```shell
-python manage.py startapp blog
-```
-
-2. Continuar....
+- Posteos de blog con autores, fechas y contenido.
+- Comentarios en los posteos.
+- Vista de detalle para cada posteo con sus comentarios correspondientes.
+- Interfaz de administración para gestionar posteos y comentarios.
+- Creación, edición y eliminación de posteos y comentarios.
