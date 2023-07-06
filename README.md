@@ -60,6 +60,10 @@ Antes de poder ejecutar este proyecto, necesitas tener instalado lo siguiente:
    ```
    python manage.py createsuperuser
    ```
+   
+   En el caso de utilizar el archivo db.sqlite3 del proyecto, el usuario y contraseña son los siguientes:
+   - username: admin
+   - password: admin
 
 6. **Ejecuta el servidor de desarrollo**
 
