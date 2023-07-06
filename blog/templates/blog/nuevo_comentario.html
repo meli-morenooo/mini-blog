@@ -1,10 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>Nuevo comentario</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Crear comentario</button>
-    </form>
+    <div class="text-white">
+        <h2>Nuevo comentario</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Crear comentario</button>
+        </form>
+    </div>
 {% endblock %}

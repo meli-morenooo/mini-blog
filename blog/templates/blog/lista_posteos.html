@@ -1,13 +1,21 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>Lista de posteos</h2>
-    {% for post in posts %}
-        <div>
-            <h3>{{ post.titulo }}</h3>
-            <p>{{ post.contenido }}</p>
-        </div>
-    {% empty %}
-        <p>No hay posteos aún.</p>
-    {% endfor %}
+    <h2 class="text-white mb-5 mt-5 text-center">Lista de posteos</h2>
+    <div  class="text-center mx-5">
+        {% for post in posts %}
+            <div class="bg-secondary p-4 mb-3 rounded">
+                <h3 class="mt-3">{{ post.titulo }}</h3>
+                <p>{{ post.contenido }}</p>
+                <div>
+                    <a href="{% url 'detalle_posteo' post.id %}" class="mr-3 mb-3 btn btn-primary">Ver</a>
+                    <a href="{% url 'editar_posteo' post.id %}" class="mr-3 mb-3 btn btn-success">Editar</a>
+                    <a href="{% url 'eliminar_posteo' post.id %}" class="mb-3 btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay posteos aún.</p>
+        {% endfor %}
+        <a href="{% url 'nuevo_posteo'%}" class="mb-3 btn btn-primary">Agregar Post</a>
+    </div>
 {% endblock %}

@@ -1,14 +1,23 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>{{ post.titulo }}</h2>
-    <p>{{ post.contenido }}</p>
-
-    <h3>Comentarios</h3>
-    {% for comentario in comentarios %}
-        <p>{{ comentario.texto }}</p>
-        <p>Escrito por: {{ comentario.autor.username }}</p>
-    {% empty %}
-        <p>No hay comentarios aún.</p>
-    {% endfor %}
+    <div class="text-white text-center bg-secondary m-2 rounded">
+        <h2>---Post {{post.id}}---</h1>
+        <h3 class="m-3">{{ post.titulo }}</h2>
+        <p class="mb-3">{{ post.contenido }}</p>
+        <p>------------------------------------</p>
+        <h4>Comentarios</h3>
+        {% for comentario in comentarios %}
+            <p>{{ comentario.texto }}</p>
+            <p>Escrito por: {{ comentario.autor.username }}</p>
+            <a href="{% url 'editar_comentario' comentario.id %}" class="mr-2 mb-3 btn btn-success">Editar</a>
+            <a href="{% url 'eliminar_comentario' comentario.id %}" class="mb-3 btn btn-danger">Eliminar</a>
+        {% empty %}
+            <p>No hay comentarios aún.</p>
+        {% endfor %}
+        <div >
+            <a href="{% url 'nuevo_comentario' post.id %}" class="mb-3 btn btn-success">Agregar comentario</a>
+            <a href="{% url 'lista_posteos' %}" class="mb-3 btn btn-primary">Ver todos los posteo</a>
+        </div>
+    </div>
 {% endblock %}

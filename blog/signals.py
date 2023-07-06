@@ -5,11 +5,13 @@ from .models import Post, Comentario
 @receiver(post_save, sender=Post)
 def actualizar_numero_entradas(sender, instance, created, **kwargs):
     if created:
-        instance.autor.usuario.numero_entradas += 1
-        instance.autor.usuario.save()
+        usuario = instance.autor.usuario  # Accede al modelo Usuario a través de la relación OneToOneField
+        usuario.numero_entradas += 1
+        usuario.save()
 
 @receiver(post_save, sender=Comentario)
 def actualizar_numero_comentarios(sender, instance, created, **kwargs):
     if created:
-        instance.post.numero_comentarios += 1
-        instance.post.save()
+        post = instance.post
+        post.numero_comentarios += 1
+        post.save()
