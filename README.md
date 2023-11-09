@@ -167,3 +167,30 @@ pytest -k test_get_categoria
 - Actualizar categoría: `PUT /api/categorias/<id>/`
 - Eliminar categoría: `DELETE /api/categorias/<id>/`
 
+
+## Pruebas API
+
+El proyecto incluye pruebas automatizadas para garantizar el correcto funcionamiento de las API. Las pruebas se encuentran en el archivo `test_api.py` y se pueden ejecutar utilizando `pytest`. Asegúrate de seguir los siguientes pasos para ejecutar las pruebas:
+
+```bash
+# Activar el entorno virtual (si lo estás utilizando)
+source venv/bin/activate  # En Linux/macOS
+.\venv\Scripts\Activate  # En Windows (PowerShell)
+
+# Instalar las dependencias
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
+# Configurar la base de datos (si es necesario)
+python manage.py migrate
+
+# Ejecutar las pruebas de API
+pytest -k test_access_protected_views  # Ejecutar solo las pruebas de acceso protegido
+pytest -k test_access_unauthorized_views  # Ejecutar solo las pruebas de acceso no autorizado
+```
+
+### Descripción de las Pruebas
+
+- **Acceso Protegido:** Las pruebas en `test_access_protected_views` aseguran que las vistas protegidas devuelvan respuestas exitosas cuando se accede con un cliente autenticado.
+
+- **Acceso No Autorizado:** Las pruebas en `test_access_unauthorized_views` garantizan que las vistas protegidas devuelvan códigos de estado 401 cuando se accede sin autenticación.
