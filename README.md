@@ -2,6 +2,12 @@
 
 Este es un proyecto de un blog básico hecho en Django.
 
+## Integrantes del Proyecto
+
+- **Cometto Federico**
+- **Morales Ciro**
+- **Moreno Melisa**
+
 ## Prerrequisitos
 
 Antes de poder ejecutar este proyecto, necesitas tener instalado lo siguiente:
