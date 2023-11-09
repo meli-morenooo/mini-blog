@@ -158,6 +158,36 @@ Se ha implementado un sistema de autenticación en la API utilizando Django Rest
 
 Se han agregado pruebas adicionales utilizando pytest para cubrir las nuevas funcionalidades y la lógica de la API. Estas pruebas incluyen casos para verificar el acceso protegido y  la correcta autenticación de usuarios. Estos tests garantizan que las nuevas funcionalidades funcionan según lo previsto.
 
+## Ejemplo de Solicitud y Respuesta
+A continuación se muestra un ejemplo de solicitud y respuesta para obtener una lista de entradas:
+
+**Solicitud:**
+```http
+GET /api/posts/
+```
+
+### Respuesta (JSON):
+```
+[
+    {
+        "id": 1,
+        "titulo": "Mi Primer Post",
+        "contenido": "Este es el contenido de mi primer post.",
+        "autor": 1,
+        "fecha_creacion": "2023-11-01T14:30:00Z",
+        "categorias": [1, 2]
+    },
+    {
+        "id": 2,
+        "titulo": "Segundo Post",
+        "contenido": "Este es otro post interesante.",
+        "autor": 2,
+        "fecha_creacion": "2023-11-02T10:45:00Z",
+        "categorias": [2, 3]
+    }
+]
+```
+
 ## Endpoints de la API
 
 ### Usuarios
