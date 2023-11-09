@@ -166,7 +166,7 @@ A continuación se muestra un ejemplo de solicitud y respuesta para obtener una 
 GET /api/posts/
 ```
 
-### Respuesta (JSON):
+**Respuesta (JSON):**
 ```
 [
     {
