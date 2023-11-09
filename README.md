@@ -137,6 +137,27 @@ pytest -k test_get_categoria
 # 
 # NUEVAS FUNCIONALIDADES: Mini Blog API
 
+#### 1. API para el Miniblog
+
+Se ha implementado una API robusta utilizando `ModelViewSet` para gestionar las operaciones CRUD en los modelos clave del Miniblog:
+
+- **Usuario:** Permite realizar operaciones en la entidad de Usuario.
+- **Entrada (Post):** Habilita la manipulación de las entradas del blog.
+- **Comentario:** Ofrece operaciones CRUD para gestionar comentarios en las entradas.
+- **Categoría:** Proporciona endpoints para administrar las categorías de las entradas.
+
+Además, se ha documentado detalladamente la API en el README. La documentación incluye información sobre los endpoints disponibles, los métodos permitidos (GET, POST, PUT, DELETE), así como ejemplos concretos de las solicitudes y respuestas esperadas. Esta documentación facilita la comprensión y el uso de la API para desarrolladores externos.
+
+La API ha sido probada y verificada su accesibilidad desde herramientas como Postman y una extension de VSCode llamada Thunder Client, garantizando el correcto funcionamiento.
+
+#### 2. Autenticación en la API
+
+Se ha implementado un sistema de autenticación en la API utilizando Django Rest Framework. Esta implementación asegura que solo los usuarios autenticados tengan la capacidad de realizar acciones sensibles, como crear, actualizar o eliminar sus propias entradas y comentarios. Esto mejora la seguridad y la privacidad al restringir ciertas operaciones a usuarios autorizados.
+
+#### 3. Tests Adicionales
+
+Se han agregado pruebas adicionales utilizando pytest para cubrir las nuevas funcionalidades y la lógica de la API. Estas pruebas incluyen casos para verificar el acceso protegido y  la correcta autenticación de usuarios. Estos tests garantizan que las nuevas funcionalidades funcionan según lo previsto.
+
 ## Endpoints de la API
 
 ### Usuarios
