@@ -158,6 +158,7 @@ Se ha implementado un sistema de autenticación en la API utilizando Django Rest
 
 Se han agregado pruebas adicionales utilizando pytest para cubrir las nuevas funcionalidades y la lógica de la API. Estas pruebas incluyen casos para verificar el acceso protegido y  la correcta autenticación de usuarios. Estos tests garantizan que las nuevas funcionalidades funcionan según lo previsto.
 
+#
 ## Ejemplo de Solicitud y Respuesta
 A continuación se muestra un ejemplo de solicitud y respuesta para obtener una lista de entradas:
 
