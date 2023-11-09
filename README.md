@@ -84,3 +84,86 @@ Este proyecto de blog en Django incluye las siguientes características:
 - Vista de detalle para cada posteo con sus comentarios correspondientes.
 - Interfaz de administración para gestionar posteos y comentarios.
 - Creación, edición y eliminación de posteos y comentarios.
+
+## Pruebas
+
+Este proyecto utiliza Pytest para realizar pruebas. Puedes ejecutar las pruebas con el siguiente comando:
+
+```bash
+pytest
+```
+
+Aquí hay un ejemplo de una prueba que crea una nueva categoría y comprueba si se guardó correctamente:
+
+```python
+import pytest
+from .models import Categoria
+
+# este decorador es para que lo teste pero no afecte a la base de datos
+@pytest.mark.django_db
+def test_get_categoria():
+    nueva_categoria = Categoria.objects.create(
+        nombre = 'categoria de test',
+    )
+
+    categoria = Categoria.objects.all()
+
+    assert categoria.count() == 1
+    assert categoria[0].nombre == nueva_categoria.nombre
+```
+
+Y aquí hay otro ejemplo de una prueba que crea varias categorías y comprueba que se hayan creado correctamente:
+
+```python
+@pytest.mark.django_db
+def test_get_categorias():
+    for x in range(20):
+         nueva_categoria = Categoria.objects.create(
+            nombre = 'otro test',
+    )
+
+    categoria = Categoria.objects.all()
+
+    assert categoria.count() == 20
+    assert categoria[0].nombre == 'Terror'
+```
+
+Para ejecutar un test específico, puedes usar la opción `-k` de pytest seguida del nombre de la función de prueba. Por ejemplo, para ejecutar solo `test_get_categoria`, puedes utilizar el siguiente comando:
+
+```bash
+pytest -k test_get_categoria
+```
+
+# 
+# NUEVAS FUNCIONALIDADES: Mini Blog API
+
+## Endpoints de la API
+
+### Usuarios
+- Listar usuarios: `GET /api/usuarios/`
+- Detalle de usuario: `GET /api/usuarios/<id>/`
+- Crear usuario: `POST /api/usuarios/`
+- Actualizar usuario: `PUT /api/usuarios/<id>/`
+- Eliminar usuario: `DELETE /api/usuarios/<id>/`
+
+### Posts
+- Listar posts: `GET /api/posts/`
+- Detalle de post: `GET /api/posts/<id>/`
+- Crear post: `POST /api/posts/`
+- Actualizar post: `PUT /api/posts/<id>/`
+- Eliminar post: `DELETE /api/posts/<id>/`
+
+### Comentarios
+- Listar comentarios: `GET /api/comentarios/`
+- Detalle de comentario: `GET /api/comentarios/<id>/`
+- Crear comentario: `POST /api/comentarios/`
+- Actualizar comentario: `PUT /api/comentarios/<id>/`
+- Eliminar comentario: `DELETE /api/comentarios/<id>/`
+
+### Categorías
+- Listar categorías: `GET /api/categorias/`
+- Detalle de categoría: `GET /api/categorias/<id>/`
+- Crear categoría: `POST /api/categorias/`
+- Actualizar categoría: `PUT /api/categorias/<id>/`
+- Eliminar categoría: `DELETE /api/categorias/<id>/`
+

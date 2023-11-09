@@ -15,16 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import include, path
 from blog import views
 from rest_framework.routers import DefaultRouter
+from blog.api.api_views import UsuarioViewSet, CategoriaViewSet, PostViewSet, ComentarioViewSet
 
+# Enrutador para las vistas de la API
 router = DefaultRouter()
-router.register(r'usuarios', views.UsuarioViewSet)
-router.register(r'posts', views.PostViewSet)
-router.register(r'comentarios', views.ComentarioViewSet)
-router.register(r'categorias', views.CategoriaViewSet)
+router.register(r'api/usuarios', UsuarioViewSet)
+router.register(r'api/categorias', CategoriaViewSet)
+router.register(r'api/posts', PostViewSet)
+router.register(r'api/comentarios', ComentarioViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +38,6 @@ urlpatterns = [
     path('post/<int:pk>/comentario/nuevo/', views.nuevo_comentario, name='nuevo_comentario'),
     path('comentario/<int:pk>/editar/', views.editar_comentario, name='editar_comentario'),
     path('comentario/<int:pk>/eliminar/', views.eliminar_comentario, name='eliminar_comentario'),
-    # Agrega las rutas de la API bajo el prefijo 'api/'
-    path('api/', include(router.urls)),
+    # Incluye las rutas de la API
+    path('', include(router.urls)),
 ]
